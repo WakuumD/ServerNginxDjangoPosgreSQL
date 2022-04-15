@@ -3,6 +3,7 @@
 # network configuration capabilities, write a file
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
 # network: {config: disabled}
+# konfigugacia dlja moej domaschnej seti wi-fi
 network:
     version: 2
     renderer: networkd
