@@ -1,0 +1,20 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=babby-data
+Group=babby-data
+# груповой пользователь
+WorkingDirectory=/home/ubuntu/code/babby/
+ExecStart=/home/ubuntu/code/babby/env/bin/gunicorn  \
+                                  --access-lonfile - \
+                                  --workers3 \
+                                  --bind unix:/run/gunicorn.sock \
+                                  core.wsgi:application
+# путь до файла гуникорн в виртуальном окружении
+
+[Install]
+# этот раздел показывает куда привязать службу
+WantedBy=multi-user.target
